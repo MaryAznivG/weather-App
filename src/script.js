@@ -43,6 +43,7 @@ function displayWeatherCondtion(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  fahrenheitTemperature = response.data.main.temp;
 
   document.querySelector("#humidiy").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
