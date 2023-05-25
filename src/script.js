@@ -7,7 +7,7 @@ if (hours < 10) {
 }
 let minutes = now.getMinutes();
 if (minutes < 10) {
-  minutes = `0${hours}`;
+  minutes = `0${minutes}`;
 }
 let year = now.getFullYear();
 let days = [
