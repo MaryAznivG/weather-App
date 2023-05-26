@@ -38,10 +38,11 @@ let months = [
 let month = months[now.getMonth()];
 h2.innerHTML = `${day}, ${month} ${date}, ${year} ${hours}:${minutes}`;
 
-function displayForecast(){
+function displayForecast(response){
+  console.log(response.data.daily);
   let forecastElement=document.querySelector("#forecast");
+  let days = ["Thu", "Fri", "Sat", "Sun"];
   let forecastHTML=`<div class="row">`;
-  let days=["Thu","Fri", "Sat", "Sun"];
   days.forEach(function(day) {
     forecastHTML=forecastHTML+
    `<div class="col-2">
@@ -55,6 +56,12 @@ function displayForecast(){
   forecastHTML=forecastHTML+ `</div>`
   forecastElement.innerHTML=forecastHTML;
 }
+function getForecast(coordinates){
+  console.log(coordinates);
+   let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
+   let apiUrl= `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+   axios.get(apiUrl).then(displayForecast);
+}
 
 function displayWeatherCondtion(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -62,6 +69,7 @@ function displayWeatherCondtion(response) {
     response.data.main.temp
   );
   fahrenheitTemperature = response.data.main.temp;
+  getForecast(response.data.coord);
 
   document.querySelector("#humidiy").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -71,6 +79,7 @@ function displayWeatherCondtion(response) {
     response.data.weather[0].description;
     document.querySelector("#icon").setAttribute("src",
       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png` );
+  
 }
 
 function handleSubmit(event) {
@@ -131,4 +140,4 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("New York");
 
-  displayForecast();
+ 
