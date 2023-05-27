@@ -1,15 +1,15 @@
 .container {
   margin: 70px auto;
-  border: 3px solid rgb(23, 28, 90);
+  border: 4px solid rgb(23, 28, 90);
   border-radius: 50px;
   padding: 15px;
   max-width: 650px;
-  background-color:#bdd8eb;
+  background-color:#82D4A6;
 }
 
 body {
   font-family: Arial, sans-serif;
-  color: rgb(78, 76, 76);
+  color:black;
 }
 h1 {
   font-size: 38px;
@@ -58,8 +58,8 @@ body {
   background-attachment: fixed;
 }
 .weather-icon {
-  height: 64px;
-  width: 64px;
+  height: 70px;
+  width: 70px;
   margin-right: 10px;
 }
 .units {
