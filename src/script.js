@@ -2,9 +2,16 @@ let now = new Date();
 let h2 = document.querySelector(".now");
 let date = now.getDate();
 let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
+let session = "AM";
+if (hours == 0) {
+  hours = 12;
 }
+if (hours > 12) {
+  hours = hours - 12;
+  session = "PM";
+}
+
+
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
@@ -36,7 +43,7 @@ let months = [
 ];
 
 let month = months[now.getMonth()];
-h2.innerHTML = `${day}, ${month} ${date}, ${year} ${hours}:${minutes}`;
+h2.innerHTML = `${day}, ${month} ${date}, ${year} ${hours}:${minutes}${session}`;
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
