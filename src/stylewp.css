@@ -96,10 +96,10 @@ body {
 .search-form {
   margin:0 auto;
   padding:0;
-  display: flex;
+  display:flex;
   justify-content: center;
-  line-height: 2;
-  width: 350px;
+  line-height:3;
+  width: 220px;
 }
 .now{
     font-style: italic;
