@@ -99,7 +99,7 @@ body {
   display:flex;
   justify-content: center;
   line-height:3;
-  width: 220px;
+  width: 200px;
 }
 .now{
     font-style: italic;
